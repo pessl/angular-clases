@@ -1,0 +1,85 @@
+<style>
+  .custom-card-header {
+background-color: #3388ff; /* Cambia el color al que desees */
+color: white; /* Cambia el color del texto si es necesario */
+
+}
+   
+</style>
+<div class="card">
+  <div class="card-header custom-card-header">
+    Bandeja de entrada
+  </div>
+  <div class="card-body">
+    <div class="row mb-3"> 
+      <div class="col-md-3"><label for="">Acompañamiento Socioambiental:</label></div>     
+      <div class="col-md-7" style="text-align: center;">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar.."
+          [(ngModel)]="filterPost"
+          name="filterpost"
+         />
+      </div>
+      <div class="col-md-2 text-end">
+        <button class="btn" style="background-color: #3388ff;color:white" (click)="newregistro()">Nuevo</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Salario</th>
+            <th>Edad</th>
+            <th>Selecione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of datos | filter: filterPost | paginate:{itemsPerPage:5, currentPage: p}">
+            <td>{{ data.id }}</td>
+            <td>{{ data.employee_name }}</td>
+            <td>{{ data.employee_salary }}</td>
+            <td>{{ data.employee_age }}</td>
+            <td><tr>
+              <td><button class="btn" style="background-color: #3388ff;color:white" (click)="newregistro()"><i class="fa-solid fa-file-circle-plus"></i></button></td>
+              <td><button class="btn btn-danger" style="color:white"><i class="fa-solid fa-trash"></i></button></td>
+            </tr> </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Título del modal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<style>
+    .custom-card-header {
+        background-color: #3388ff;
+        /* Cambia el color al que desees */
+        color: white;
+        /* Cambia el color del texto si es necesario */
+    }
+</style>
+<div class="card">
+    <div class="card-header custom-card-header">
+        Ubicación de espacios de conflictos
+    </div>
+    <br>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <app-search-bar></app-search-bar>
+            </div>
+            <div class="col-md-6" style="text-align: end;">
+                <app-btn-my-lacation ></app-btn-my-lacation>
+               
+            </div>
+            
+            
+            
+        </div>
+        <div class="row mb-3" style="text-align: center !important;">
+            <app-loading-map *ngIf="!isUserLocationReady; else mapReady"></app-loading-map>
+            <ng-template #mapReady>
+                <app-view-map></app-view-map>
+
+            </ng-template>
+            
+        </div>
+
+
+    </div>
+</div>

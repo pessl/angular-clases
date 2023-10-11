@@ -1,0 +1,52 @@
+<style>
+  .custom-card-header {
+    background-color: #3388ff;
+    color: white;
+  }
+</style>
+
+<div class="card">
+  <form action="">
+    <div class="card-header custom-card-header">
+      Generar Documentos Acompañamiento EAT
+    </div>
+    <div class="card-body">
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item" *ngFor="let tab of tabsArray; let sr = index" (click)="setTab(sr)">
+              <button class="nav-link" [ngClass]="activatedTab == sr ? 'active' :''" type="button">{{ tab }}</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-12">
+          <div>
+            <div *ngIf="activatedTab==0" class="tab-pane">
+              <app-documentos-eat-anexo1></app-documentos-eat-anexo1>
+            </div>
+            <div *ngIf="activatedTab==1" class="tab-pane">
+              <app-documentos-eat-anexo2></app-documentos-eat-anexo2>
+            </div>
+            <div *ngIf="activatedTab==2" class="tab-pane">
+              <app-documentos-eat-anexo3></app-documentos-eat-anexo3>
+            </div>
+            <div *ngIf="activatedTab==3" class="tab-pane">
+              <app-documentos-eat-anexo4></app-documentos-eat-anexo4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-md-12" style="display: flex; justify-content: end;">
+          <button class="btn btn btn-primary me-3">Cancelar</button>
+          <button class="btn btn btn-primary me-3">Guardar</button>
+          <button class="btn btn btn-primary">Siguiente</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

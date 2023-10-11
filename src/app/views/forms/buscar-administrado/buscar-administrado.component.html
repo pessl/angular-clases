@@ -1,0 +1,59 @@
+<style>
+  .custom-card-header {
+    background-color: #3388ff; /* Cambia el color al que desees */
+    color: white; /* Cambia el color del texto si es necesario */
+  }
+
+  table {
+    border-collapse: collapse
+  }
+
+  th, td {
+    padding: 15px;
+    border: 1px solid;
+  }
+
+  thead{
+    background-color: dodgerblue;
+  }
+</style>
+
+<div class="card">
+  <div class="card-header custom-card-header">
+    Búsqueda de Administrado
+  </div>
+  <div class="card-body">
+    <div class="row mt-3">
+      <div class="col-md-2">
+        <label for="inAdministrado"><strong>Adminsitrado</strong></label>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-7" style="text-align: center;">
+          <input type="text" class="form-control" placeholder="Buscar..." name="filtrarAdministrado">
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <thead class="table table-striped table-hover">
+            <tr>
+              <th>Código</th>
+              <th>Nombre o Razón Social</th>
+              <th>Agregar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let administrado of administradoList">
+              <td>{{ administrado.codigo  }}</td>
+              <td>{{ administrado.nombre }}</td>
+              <td><button class="btn btn-primary"> + <i class="fas-regular fas-square-plus"></i></button></td>
+            </tr>
+          </tbody>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

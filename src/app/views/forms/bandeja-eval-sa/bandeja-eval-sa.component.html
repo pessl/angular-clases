@@ -1,0 +1,61 @@
+
+<style>
+  .custom-card-header {
+background-color: #3388ff; /* Cambia el color al que desees */
+color: white; /* Cambia el color del texto si es necesario */
+}
+
+  
+</style>
+<div class="card">
+  <div class="card-header custom-card-header">
+    Registro nueva información
+  </div>
+  <br>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2"><label for="proveniente" class="form-label">Proveniente:</label></div>
+      <div class="col-md-8">
+        <div class="input-group mb-3">
+          <select class="form-select" id="inputGroupSelect02" name="selecione" [(ngModel)]="opcionSeleccionada">
+            <option value="0">Seleccione</option>
+            <option value="1">Monitorio de medios</option>
+            <option value="2">Información de área de OEFA</option>
+            <option value="3">Entidades Publicas y/o privado</option>
+            <option value="4">Acompañamiento socioambiental</option>
+            <option value="5">Actores Sociales</option>
+          </select>
+          <label class="input-group-text" for="inputGroupSelect02">Seleccione</label>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    <div class="row">
+      <div *ngIf="opcionSeleccionada === '1'">
+        <app-monitoreodemedios></app-monitoreodemedios>
+      </div>
+      <div *ngIf="opcionSeleccionada === '2'">
+        <app-informacionareasoefa></app-informacionareasoefa>
+      </div>
+      <div *ngIf="opcionSeleccionada === '3'">
+        <app-entidadespublicasprivadas></app-entidadespublicasprivadas>
+      </div>
+      <div *ngIf="opcionSeleccionada === '4'">
+        <app-acompanamientosocial></app-acompanamientosocial>
+      </div>
+      <div *ngIf="opcionSeleccionada === '5'">
+        <app-actoressociales></app-actoressociales>
+    
+    </div>
+    </div>
+     
+    
+  </div>
+  
+  </div>
+
+
+
+
+

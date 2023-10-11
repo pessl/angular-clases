@@ -1,0 +1,18 @@
+.pointer{
+    cursor: pointer;
+}
+p{
+    font-size: 11px;
+}
+/* .backgroup{
+    background-color: rgba(255, 255, 255, 0.5);
+} */
+.active2{
+    background-color: rgba(244, 244, 244, 0.8) !important;
+    --group-active-bg: #555555 !important;
+   /* border-color: #5a5959;*/
+  border: var(--cui-list-group-border-width) solid var(--cui-list-group-border-color);
+    color: #3388ff;
+    --hover-color: #768192 !important;
+   
+}

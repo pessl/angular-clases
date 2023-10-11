@@ -1,0 +1,121 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <h3 style="font-weight: 700;">Monitoreo de medios </h3>
+  </div>
+</div>
+<form [formGroup]="formLogin!" (ngSubmit)="send(formLogin!.value)">
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="row mb-3">
+        <div class="col-md-2"><label for="" class="form-label">fecha</label></div>
+        <div class="col-md-5"><input type="date" formControlName="fregistromm" class="form-control" id="fregistromm"
+            [class.is-invalid]="fregistrommvalido" [max]="maxDate">
+          <span *ngIf="fregistrommvalido" class="text-danger">Debe seleccionar una fecha</span>
+        </div>
+
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2"><label for="titulo" class="form-label">Titulo</label></div>
+        <div class="col-md-8">
+          <div class="input-group">
+            <input type="text" class="form-control" formControlName="titulomm" required
+              [class.is-invalid]="titulommvalido" id="titulomm">
+          </div>
+          <span *ngIf="titulommvalido" class="text-danger">Ingrese un titulo</span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2"><label for="fuente" class="form-label">Fuentes</label></div>
+        <div class="col-md-8">
+          <div class="input-group">
+            <input type="text" class="form-control" id="fuente" formControlName="fuentesmm" required
+              [class.is-invalid]="fuentesmmvalido">
+          </div>
+          <span *ngIf="fuentesmmvalido" class="text-danger">Ingrese una fuente</span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2"><label for="link" class="form-label">Link URL</label></div>
+        <div class="col-md-8">
+          <div class="input-group">
+            <input type="text" class="form-control" id="link" formControlName="linkurlmm" required
+              [class.is-invalid]="linkurlmmvalido" (input)="onLinkChange()" #linkInput>
+          </div>
+          <span *ngIf="linkurlmmvalido" class="text-danger">Ingrese link</span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2"><label for="resumen" class="form-label">Resumen</label></div>
+        <div class="col-md-8">
+          <div class="input-group">
+            <textarea class="form-control" id="resumen" rows="4" formControlName="resumenmm" required
+              [class.is-invalid]="resumenmmvalido"></textarea>
+          </div>
+          <span *ngIf="resumenmmvalido" class="text-danger">Ingrese un breve resumen</span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <h4>ESPACIO DE DIALOGO</h4>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2"><label for="link" class="form-label">Conflicto Social asociado</label></div>
+        <div class="col-md-8">
+          <input type="search" class="form-control" placeholder="Buscar" formControlName="shearbmm" />
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-10">
+          <ng-container *ngIf="imageSrc; else noImageMessage">
+          <img [src]="imageSrc" class="rounded mx-auto d-block img-fluid"
+            style="width: 350px; height: 300px; border: 2px solid black; border-radius: 70%;" alt="">
+          <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>          
+        </ng-container>
+        <ng-template #noImageMessage>
+          <p class="text-center">Aquí se mostrará la imagen</p>
+        </ng-template>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">Motivo:</div>
+            <div class="col-md-6" style="font-size:10px">* Si en caso no aprueba el responsable</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <textarea class="form-control" id="motivo" rows="3" formControlName="motivomm" required
+                  [class.is-invalid]="motivommvalido"></textarea>
+              </div>
+              <span *ngIf="motivommvalido" class="text-danger">Ingrese un motivo</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+<div class="row">
+  <div class="col-md-12 text-end">
+    <button class="btn btn btn-primary">Regresar</button> &nbsp;&nbsp;&nbsp;
+    <button class="btn btn btn-primary"
+      [disabled]="formLogin!.invalid || f.fregistrommvalido || f.titulommvalido || f.fuentesmmvalido || f.linkurlmmvalido || f.resumenmmvalido || f.shearbmmvalido || f.motivommvalido">Registrar</button>
+
+  </div>
+</div>

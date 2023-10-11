@@ -1,0 +1,71 @@
+<style>
+    .custom-card-header {
+        background-color: #3388ff;
+        /* Cambia el color al que desees */
+        color: white;
+        /* Cambia el color del texto si es necesario */
+    }
+</style>
+<div class="card">
+    <div class="card-header custom-card-header">
+        Registrar nueva información
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-2"> <label for="">Probeniente:</label></div>
+            <div class="col-md-5">
+                <div class="input-group mb-3">
+                  <select class="form-select" id="inputGroupSelect02" Formcontrolname="selecione">
+                    <option value="0">Seleccione</option>
+                    <option value="1">Monitorio de medios</option>
+                    <option value="2">Información de área de OEFA</option>
+                    <option value="3">Entidades Publicas y/o privado</option>
+                    <option value="4">Acompañamiento socioambiental</option>
+                    <option value="5">Actores Sociales</option>
+                  </select>
+                  <label class="input-group-text" for="inputGroupSelect02">Seleccione</label>
+                </div>
+              </div>
+            <div class="col-md-5"> 
+                <mat-form-field>
+                    <mat-label>Select an option</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="0">Seleccione</mat-option>
+                      <mat-option value="1">Monitorio de medios</mat-option>
+                      <mat-option value="2">Información de área de OEFA</mat-option>
+                      <mat-option value="3">Entidades Publicas y/o privado</mat-option>
+                      <mat-option value="4">Acompañamiento socioambiental</mat-option>
+                      <mat-option value="5">Actores Sociales</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <label for="">Fecha</label>
+            </div>
+            <div class="col-md-5" style="background-color: white !important;">
+                <mat-form-field class="example-full-width" style="background-color: white !important;">
+                    <mat-label>Seleccione una Fecha</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2">Titulo</div>
+            <div class="col-md-8">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Ingrese un Titulo</mat-label>
+                    <input matInput placeholder="" value="">
+                  </mat-form-field>               
+                 
+            </div>
+        </div>
+    </div>
+
+</div>

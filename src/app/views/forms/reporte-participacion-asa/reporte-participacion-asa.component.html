@@ -1,0 +1,262 @@
+<style>
+  .custom-card-header {
+    background-color: #3388ff;
+    color: white;
+  }
+
+  table {
+    border-collapse: collapse
+  }
+
+  th, td {
+    padding: 15px;
+    border: 1px solid;
+  }
+
+  thead{
+    background-color: dodgerblue;
+  }
+</style>
+
+<div class="card">
+  <form action="">
+
+    <div class="card-header custom-card-header">
+      Generar Reporte de Participación de la Verificación del Escenario Socioambiental
+    </div>
+
+    <div class="card-body">
+
+      <div class="row mt-3">
+        <div class="col-md-12"><h2><strong>REPORTE DE PARTICIPACIÓN SOCIOAMBIENTAL</strong></h2></div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-2">
+          <label for="in_nroDocumento"><strong>Nº DOCUMENTO</strong></label>
+        </div>
+        <div class="col-md-3">
+          <input type="text" name="in_nroDocumento" class="form-control">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="in_actividad" class="form-label"><strong>ACTIVIDAD</strong></label>
+          <input name="in_actividad" class="form-control">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="in_lugarFecha" class="form-label"><strong>LUGAR Y FECHA</strong></label>
+          <input name="in_lugarFecha" class="form-control">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="in_asunto" class="form-label"><strong>ASUNTO</strong></label>
+          <input name="in_asunto" class="form-control">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12"><strong>REPRESENTANTE DE LA OEFA</strong></div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-2">
+            <label for="in_nombre" class="form-label"><strong>NOMBRE</strong></label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" name="in_nombre" class="form-control">
+        </div>
+        <div class="col-md-2">
+          <label for="in_cargo" class="form-label"><strong>CARGO</strong></label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" name="in_cargo" class="form-control">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <strong>1. RELACIÓN DE ACTORES QUE PARTICIPARON:</strong>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12" style="display: flex; justify-content: end;">
+          <button class="btn btn btn-primary">Nuevo Actor</button>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <th>Nº</th>
+                <th>Nombre y Apellidos</th>
+                <th>Cargo</th>
+                <th>Correo/Telefóno</th>
+                <th>Comunidad</th>
+                <th>Distrito</th>
+                <th>Provincia</th>
+                <th>Departamento</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Fredy Eloy Perales Rivas</td>
+                  <td>Presidente de la Comunidad Campesina de Sancos</td>
+                  <td>974055702</td>
+                  <td>Comunidad Campesina de Sancos</td>
+                  <td>Sancos</td>
+                  <td>Lucanas</td>
+                  <td>Ayacucho</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Eugenio Odilón Triveños Castro</td>
+                  <td>Presidente de la Comunidad Campesina de Para</td>
+                  <td>938896502</td>
+                  <td>Comunidad Campesina de Para</td>
+                  <td>Chaviña</td>
+                  <td>Lucanas</td>
+                  <td>Ayacucho</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12"><strong>2. ESCENARIO SOCIAL</strong></div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_contGen" class="form-label"><strong>a. Contexto General</strong></label>
+          <textarea formControlName="ta_contGen" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_contEsp" class="form-label"><strong>b. Contexto Específico (Problemas Ambientales)</strong></label>
+          <textarea formControlName="ta_contEsp" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_percPobl" class="form-label"><strong>c. Percepción de la población</strong></label>
+          <textarea formControlName="ta_percPobl" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12"><strong>3. DESCRIPCIÓN DE ACTIVIDADES</strong></div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_accPrev" class="form-label"><strong>Acciones Previas</strong></label>
+          <textarea formControlName="ta_accPrev" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_accCamp" class="form-label"><strong>Acciones de Campo</strong></label>
+          <textarea formControlName="ta_accCamp" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_compromisos" class="form-label"><strong>4. COMPROMISOS ASUMIDOS POR LA OEFA</strong></label>
+          <textarea formControlName="ta_compromisos" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_conclusiones" class="form-label"><strong>5. CONCLUSIONES</strong></label>
+          <textarea formControlName="ta_conclusiones" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label for="ta_observaciones" class="form-label"><strong>6. OBSERVACIONES</strong></label>
+          <textarea formControlName="ta_observaciones" class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <p>Relación de documentos adjuntos al reporte:</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-4" style="display: flex; justify-content: end;">
+          <button class="btn btn btn-primary">Documento</button>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <th>Nombre del documento</th>
+                <th>Archivo</th>
+              </thead>
+              <tbody>
+                <td>Nombre</td>
+                <td>Icono</td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-md-6" style="text-align: center;">
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <label class="form-label"><strong>¿Se acompaña a la supervisión?</strong></label>
+            </div>
+            <div class="mt-3">
+              <input name="r_supervision" type="radio" class="ms-5"><label class="form-label">Si</label>
+              <input name="r_supervision" type="radio" class="ms-5"><label class="form-label">No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-6" style="text-align: end;">
+          <button class="btn btn btn-primary me-3">Generar Documento</button>
+        </div>
+        <div class="col-md-6" style="text-align: start;">
+          <button class="btn btn btn-primary me-3">Adjuntar Documento</button>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-12" style="display: flex; justify-content: end;">
+          <button class="btn btn btn-primary me-3">Cancelar</button>
+          <button class="btn btn btn-primary me-3">Guardar</button>
+          <button class="btn btn btn-primary">Siguiente</button>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

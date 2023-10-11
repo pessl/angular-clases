@@ -1,0 +1,158 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizar información</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<style> 
+ .custom-card-header {
+  background-color: #3388ff; /* Cambia el color al que desees */
+  color: white; /* Cambia el color del texto si es necesario */  
+  }
+ .search-container {
+           /* display: flex; */
+            align-items: right;
+        }
+
+        .search-input {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            padding: 10px 20px;
+            cursor: pointer;
+            height: 45.6px;
+        }
+
+        /* Estilo para el botón de búsqueda */
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+
+</style>
+
+<div class="card">
+    <div class="card-header custom-card-header">
+        Analizar Información
+    </div>            
+    <div class="card-body">
+        <div class="row">
+            <div class="row mb-3">
+                <div class="col">
+                     <h3>Acompañamiento Socioambiental</h3>
+                </div>
+             </div>             
+        </div>          
+        <br>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr class="centerinput">
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Salario</th>
+                  <th>Edad</th>
+                  <th>Selecione</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of datos | filter: filterPost | paginate:{itemsPerPage:5, currentPage: p}">
+                  <td>{{ data.id }}</td>
+                  <td>{{ data.employee_name }}</td>
+                  <td>{{ data.employee_salary }}</td>
+                  <td>{{ data.employee_age }}</td>
+                  <td class="centerinput">
+                    <input type="checkbox">
+                   
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>            
+        
+        <br>
+        <div class="row mb-3" style="border: solid #ccc 1px;"></div>   
+        <br>
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <label for="Asusnto"> Asunto:</label>               
+            </div>
+            <div class="col-md-8">
+                <input type="text" class="form-control" placeholder="Asunto">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2">  <label for="Asusnto"> Descripción:</label></div>
+            <div class="col-md-8">  <textarea class="form-control" id="motivo" rows="3"></textarea></div>
+        </div>
+            <br >           
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <h3>Generar reporte de alerta temprana?</h3>
+                </div>
+                <div class="col-md-3">
+                    <input type="radio" name="seleccion">&nbsp;&nbsp; Si &nbsp;&nbsp;
+                    <input type="radio" name="seleccion">&nbsp;&nbsp; No
+                </div>
+            </div> 
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <h3>Es pertinente realizar acción de prevención?</h3>
+                </div>
+                <div class="col-md-3">
+                    <input type="radio" name="seleccion">&nbsp;&nbsp; Si &nbsp;&nbsp;
+                    <input type="radio" name="seleccion">&nbsp;&nbsp; No
+                </div>
+            </div> 
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <h3>EEs un conflicto socio ambiental competente a OEFA?</h3>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" name="seleccion">&nbsp;&nbsp; Si &nbsp;&nbsp;
+                    <input type="radio" name="seleccion">&nbsp;&nbsp; No
+                </div>
+                <div class="col-md-2">Conflicto Social asociado:</div>
+                <div class="col-md-3"> 
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Buscar...">
+                        <button class="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-primary">Nuevo <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+
+    </div>
+       
+			
+           
+				  
+               
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	
+</div>
+<script>
+   $(function(){
+  $('#datepicker').datepicker();
+});
+</script>

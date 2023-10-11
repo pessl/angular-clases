@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-image: url('https://sso.oefa.gob.pe/OEFA.STS/Content/img/fondoLogin.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Establece la altura al 100% de la ventana */
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Agrega estilos para el formulario aquí si es necesario */
+  </style>
+</head>
+<body>
+  <form [formGroup]="formLogin" (ngSubmit)="send(formLogin.value)">
+    <div class="background">   
+      <div class="container d-flex justify-content-center align-items-center h-100 py-5">
+        <div class="row ">
+          <div class="col-xl-12">
+            <div class="card p-4">
+              <div class="card-body">
+               
+                  <div class="row text-center mb-4">
+                    <div class="col-md-12">
+                    <img src="https://pifa.oefa.gob.pe/Fotos_App/Img_PIFA/logo_oefa.png" style="width: 350px !important;" alt="Bienvenido" class="mx-auto d-block">
+                  </div>
+                  </div>
+                  <div class="row mb-3 text-center">
+                    <div class="col-md-12">
+                    <p class="text-medium-emphasis" style="font-weight: 700;">Inicia sesión para continuar</p>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">
+                          <svg cIcon name="cilUser"></svg>
+                        </span>
+                        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Usuario" [class.is-invalid]="usernamevalido"  />                        
+                      </div>
+                    <span *ngIf="usernamevalido" class="text-danger">Ingrese Usuarios</span>
+                    </div>
+                  </div>
+                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">
+                        <svg cIcon name="cilLockLocked"></svg>
+                      </span>
+                      <input class="form-control" formControlName="password" id="password" type="password" placeholder="Contraseña" [class.is-invalid]="passwordvalido"/>
+                     
+                    </div>
+                    <span *ngIf="passwordvalido" class="text-danger">Ingrese contraseña</span>
+                  </div>
+                 </div>
+                 <div class="row">
+                  <div class="col-md-12">
+                    <label for="terms"> Aceptar terminos de condiciones</label> &nbsp;&nbsp;
+                    <input type="checkbox" id="terms" formControlName="terms">
+                  </div>
+                 </div>
+                  <br>
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-block w-100" color="primary" [disabled]="formLogin.invalid || f.usernameinvalid || f.password.invalid || f.terms.invalid">
+                        Ingresar
+                      </button>
+                    </div>
+                  </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      
+    </div>
+    </form>
+    <br>
+    <h3 class="mt-5">Formulario</h3>
+    <pre>Estado formulario: {{formLogin.valid}}
+    <br>
+    Status:{{formLogin.status}}   
+    </pre>
+    <br>
+    <pre>
+      {{formLogin.valid | json}}
+    </pre>
+</body>
+</html>
