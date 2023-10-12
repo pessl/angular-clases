@@ -27,6 +27,7 @@ import { AnalizarInfoEvalsaComponent } from './analizar-info-evalsa/analizar-inf
 import { NewRegisterInfoEcComponent } from './new-register-info-ec/new-register-info-ec.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 import { MonitoreodemediosComponent } from './monitoreodemedios/monitoreodemedios.component';
 import { InformacionareasoefaComponent } from './informacionareasoefa/informacionareasoefa.component';
 import { EntidadespublicasprivadasComponent } from './entidadespublicasprivadas/entidadespublicasprivadas.component';
@@ -64,6 +65,8 @@ import { DocumentosEacAnexo5Component } from './documentos-eac-anexo5/documentos
 import { DocumentosEacAnexo6Component } from './documentos-eac-anexo6/documentos-eac-anexo6.component';
 import { BuscarAdministradoComponent } from './buscar-administrado/buscar-administrado.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -133,7 +136,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 
     MatSelectModule,
     MatFormFieldModule,
-    NewRegisterInfoEcComponent
+    NewRegisterInfoEcComponent,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
   ]
 })
 export class CoreUIFormsModule {

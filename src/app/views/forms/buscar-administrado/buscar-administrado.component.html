@@ -1,59 +1,63 @@
-<style>
-  .custom-card-header {
-    background-color: #3388ff; /* Cambia el color al que desees */
-    color: white; /* Cambia el color del texto si es necesario */
-  }
+<div class="buscar-administrado">
 
-  table {
-    border-collapse: collapse
-  }
+  <ng-container *ngIf="esperandoDatos; then mostrarSpinner else mostrarTablaDeAdministrados">
+  </ng-container>
 
-  th, td {
-    padding: 15px;
-    border: 1px solid;
-  }
+  <ng-template #mostrarSpinner>
+    <div class="fade show">
+      <i class="spinner-grow spinner-grow-sm"></i>
+      <span class="m-2">Cargando...</span>
+    </div>
+  </ng-template>
 
-  thead{
-    background-color: dodgerblue;
-  }
-</style>
-
-<div class="card">
-  <div class="card-header custom-card-header">
-    Búsqueda de Administrado
-  </div>
-  <div class="card-body">
-    <div class="row mt-3">
-      <div class="col-md-2">
-        <label for="inAdministrado"><strong>Adminsitrado</strong></label>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-7" style="text-align: center;">
-          <input type="text" class="form-control" placeholder="Buscar..." name="filtrarAdministrado">
-        </div>
-      </div>
+  <ng-template #mostrarTablaDeAdministrados>
+    <div class="buscar-administrado__busqueda">
+      <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input matInput type="text" [(ngModel)]="textoABuscar" (keyup)="buscarEnTabla()">
+      </mat-form-field>
     </div>
 
-    <div class="row mt-3">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <thead class="table table-striped table-hover">
-            <tr>
-              <th>Código</th>
-              <th>Nombre o Razón Social</th>
-              <th>Agregar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let administrado of administradoList">
-              <td>{{ administrado.codigo  }}</td>
-              <td>{{ administrado.nombre }}</td>
-              <td><button class="btn btn-primary"> + <i class="fas-regular fas-square-plus"></i></button></td>
-            </tr>
-          </tbody>
-        </div>
-      </div>
-    </div>
+    <div class="buscar-administrado__contenido">
+      <table mat-table [dataSource]="dataSource">
 
-  </div>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>CÓDIGO</th>
+          <td mat-cell *matCellDef="let row">{{row.codigo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>NOMBRE O RAZÓN SOCIAL</th>
+          <td mat-cell *matCellDef="let row">{{row.nombre}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row">
+            <button class="btn btn-primary" style="color:white" (click)="seleccionarAdministrado(row)">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasAMostrar;">
+        </tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell filtro-sin-resultados" [attr.colspan]="columnasAMostrar.length">
+            No se encontraron resultados.
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator hidePageSize="true" [pageSize]="tamanoPagina" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </ng-template>
 </div>
