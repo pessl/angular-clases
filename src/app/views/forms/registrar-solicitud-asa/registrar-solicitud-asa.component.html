@@ -1,21 +1,9 @@
-<style>
-  .custom-card-header {
-    background-color: #3388ff;
-    color: white;
-  }
-
-  th,
-  td {
-    padding: 15px;
-    border-bottom: groove;
-  }
-</style>
-
-<div class="card">
-  <form action="">
+<div class="card registrar-solicitud-asa">
+  <form>
     <div class="card-header custom-card-header">
       Registrar y Evaluar Solicitud de Acompañamiento Socioambiental
     </div>
+
     <div class="card-body">
       <div class="row mt-3">
         <div class="col-md-2">
@@ -24,6 +12,7 @@
         <div class="col-md-4">
           <input type="date" name="in_fechaInicio" class="form-control">
         </div>
+
         <div class="col-md-2">
           <label for="in_fechaFin" class="form-label"><strong>FECHA FIN</strong></label>
         </div>
@@ -37,7 +26,7 @@
           <strong class="form-label">ADMINISTRADOS</strong>
         </div>
         <div class="col-md-4">
-          <button class="btn btn btn-primary" (click)="openDialog()">Buscar y agregar</button>
+          <button class="btn btn btn-primary" (click)="openDialog()">Buscar Administrados</button>
         </div>
       </div>
 
@@ -48,10 +37,27 @@
               <thead>
                 <th>CÓDIGO</th>
                 <th>NOMBRE O RAZÓN SOCIAL</th>
+                <th></th>
               </thead>
               <tbody>
-                <td>ADM21-003760</td>
-                <td>REPSOL EXPLORACIÓN PERÚ SUCURSAL DEL PERÚ</td>
+                <ng-container
+                  *ngIf="listaDeAdministrados.length == 0 then noHayAdministrados else mostrarTablaDeAdministrados"></ng-container>
+                <ng-template #noHayAdministrados>
+                  <td colspan="3">Aún no se han seleccionado ADMINISTRADOS.</td>
+                </ng-template>
+                <ng-template #mostrarTablaDeAdministrados>
+                  <ng-container *ngFor="let administrado of listaDeAdministrados">
+                    <tr>
+                      <td>{{administrado.codigo}}</td>
+                      <td>{{administrado.nombre}}</td>
+                      <td>
+                        <button class="btn btn-danger" style="color:white" (click)="removerAdministrado(administrado)">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </ng-template>
               </tbody>
             </table>
             <i style="margin: 10px; font-size: 13px;">(*) Se puede considerar más de 1 administrado</i>
