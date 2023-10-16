@@ -1,4 +1,5 @@
 export interface ConflictoSocial {
   id: number;
-  nombre: string;
+  codigo: string;
+  rotulo: string;
 }

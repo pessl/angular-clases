@@ -23,7 +23,7 @@ import {
   CardModule,
   DropdownModule,
   FooterModule,
-  FormModule,  
+  FormModule,
   GridModule,
   HeaderModule,
   ListGroupModule,
@@ -33,8 +33,8 @@ import {
   SidebarModule,
   TabsModule,
   UtilitiesModule,
-  
-  
+
+
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
@@ -45,6 +45,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalRegevalsaComponent } from './views/modal/modal-regevalsa/modal-regevalsa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BandejaEvalSaComponent } from './views/forms/bandeja-eval-sa/bandeja-eval-sa.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 const APP_CONTAINERS = [
@@ -56,40 +57,39 @@ const APP_CONTAINERS = [
 @NgModule({
   declarations: [AppComponent, ...APP_CONTAINERS, ModalRegevalsaComponent, ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     AvatarModule,
+    BadgeModule,
     BreadcrumbModule,
-    FooterModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    ButtonGroupModule,
+    ButtonModule,
+    CardModule,
     DropdownModule,
+    FontAwesomeModule,
+    FooterModule,
+    FormModule,
+    FormsModule,
     GridModule,
     HeaderModule,
-    SidebarModule,
-    IconModule,
-    NavModule,
-    ButtonModule,
-    FormModule,
-    UtilitiesModule,
-    ButtonGroupModule,
-    ReactiveFormsModule,
-    SidebarModule,
-    SharedModule,
-    TabsModule,
-    ListGroupModule,
-    ProgressModule,
-    BadgeModule,
-    ListGroupModule,
-    CardModule,
-    NgScrollbarModule,
     HttpClientModule,
+    IconModule,
+    ListGroupModule,
+    MatDialogModule,
+    MatIconModule,
     MatPaginatorModule,
     MatTableModule,
-    NgxPaginationModule,
-    FontAwesomeModule,
+    NavModule,
     NgbModule,
-    MatIconModule,
-    FormsModule,
+    NgScrollbarModule,
+    NgxPaginationModule,
+    ProgressModule,
+    ReactiveFormsModule,
+    SharedModule,
+    SidebarModule,
+    TabsModule,
+    UtilitiesModule,
   ],
   exports:[ModalRegevalsaComponent],
   providers: [

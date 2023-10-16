@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-documentos-eac',
   templateUrl: './documentos-eac.component.html',
-  styles: [
+  styleUrls: ['./documentos-eac.component.scss'
   ]
 })
 export class DocumentosEacComponent {
@@ -12,7 +13,14 @@ export class DocumentosEacComponent {
 
   activatedTab: number = 0;
 
+  constructor(private router: Router){}
+
   setTab(index:number){
     this.activatedTab = index;
   }
+
+  generarReporte(){
+    this.router.navigate(['/forms/reporte-asa']);
+  }
+
 }

@@ -26,7 +26,7 @@
           <strong class="form-label">ADMINISTRADOS</strong>
         </div>
         <div class="col-md-4">
-          <button class="btn btn btn-primary" (click)="openDialog()">Buscar Administrados</button>
+          <button class="btn btn btn-primary" (click)="openDialogAdm()">Buscar Administrados</button>
         </div>
       </div>
 
@@ -83,8 +83,24 @@
                 <th>DESCRIPCIÓN</th>
               </thead>
               <tbody>
-                <td>U0015271</td>
-                <td>LA CHILCA</td>
+                <ng-container
+                  *ngIf="listaDeUnidadFiscalizable.length == 0 then noHayUnidadesFiscalizables else mostrarTablaDeUnidadesFiscalizables"></ng-container>
+                  <ng-template #noHayUnidadesFiscalizables>
+                    <td colspan="3">Aún no se han seleccionado UNIDADES FISCALIZABLES.</td>
+                  </ng-template>
+                  <ng-template #mostrarTablaDeUnidadesFiscalizables>
+                  <ng-container *ngFor="let unidadesFiscalizable of listaDeUnidadFiscalizable">
+                    <tr>
+                      <td>{{unidadesFiscalizable.codigo}}</td>
+                      <td>{{unidadesFiscalizable.nombre}}</td>
+                      <td>
+                        <button class="btn btn-danger" style="color:white" (click)="removerUnidadFiscalizable(unidadesFiscalizable)">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </ng-template>
               </tbody>
             </table>
             <i style="margin: 10px; font-size: 13px;">(*) Se puede considerar más de 1 unidad fiscalizable</i>
@@ -112,6 +128,9 @@
             <div class="col-md-8">
               <select class="form-select" id="sel_TipoAcomp">
                 <option selected>Selecione</option>
+                <option>Evaluación Ambiental Temprana (EAT)</option>
+                <option>Evaluación Ambiental de Causalidad (EAC)</option>
+                <option>Supervisión ambiental o apoyo a una entidad pública</option>
               </select>
             </div>
           </div>
@@ -130,7 +149,16 @@
             </div>
             <div class="col-md-4">
               <select class="form-select">
-                <option selected>Selecione</option>
+                <select class="form-select">
+                  <option selected>Selecione</option>
+                  <option>Agricultura</option>
+                  <option>Electricidad</option>
+                  <option>Hidrocarburos</option>
+                  <option>Industria</option>
+                  <option>Minería</option>
+                  <option>Pesquería</option>
+                  <option>Residuos Sólidos</option>
+                </select>
               </select>
             </div>
           </div>
@@ -143,7 +171,7 @@
               <label for="" class="form-label"><strong>DOCUMENTOS</strong></label>
             </div>
             <div class="col-md-6">
-              <button class="btn btn btn-primary">Adjuntar Documentos</button>
+              <button class="btn btn-primary">Adjuntar Documentos</button>
             </div>
           </div>
         </div>
@@ -198,12 +226,23 @@
         </div>
       </div>
 
-      <div class="row mt-3">
-        <div class="col-md-2">
+      <div class="row mt-3 label">
+        <div class="col-md-4">
           <label for="in_ConfSocAso" class="form-label"><strong>CONFLICTO SOCIAL ASOCIADO</strong></label>
         </div>
+
         <div class="col-md-4">
-          <input type="search" name="in_ConfSocAso" class="form-control">
+          <ng-container
+            *ngIf="conflictoSocial == null then noHayConflictoSocial else mostrarConflictoSocial"></ng-container>
+            <ng-template #noHayConflictoSocial>
+              <label>Aún no se han seleccionado un CONFLICTO SOCIAL.</label>
+            </ng-template>
+            <ng-template #mostrarConflictoSocial>
+              <label type="search" name="in_ConfSocAso" class="form-control">{{ conflictoSocial.rotulo  }}</label>
+            </ng-template>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" (click)="openDialogCS()">Buscar Conflicto Social</button>
         </div>
       </div>
 
@@ -218,9 +257,9 @@
           </div>
         </div>
         <div class="col-md-4" style="display: flex; justify-content: space-between;">
-          <button class="btn btn btn-primary my-5">Cancelar</button>
-          <button class="btn btn btn-primary my-5">Guardar</button>
-          <button class="btn btn btn-primary my-5">Siguiente</button>
+          <button class="btn btn-primary my-5">Cancelar</button>
+          <button class="btn btn-primary my-5">Guardar</button>
+          <button class="btn btn-primary my-5" (click)="respuestaSolicitud()">Siguiente</button>
         </div>
       </div>
 

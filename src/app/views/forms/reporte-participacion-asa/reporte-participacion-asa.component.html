@@ -91,7 +91,7 @@
 
       <div class="row mt-3">
         <div class="col-md-12" style="display: flex; justify-content: end;">
-          <button class="btn btn btn-primary">Nuevo Actor</button>
+          <button class="btn btn-primary" (click)="openDialogAc()">Nuevo Actor</button>
         </div>
       </div>
 
@@ -110,26 +110,29 @@
                 <th>Departamento</th>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Fredy Eloy Perales Rivas</td>
-                  <td>Presidente de la Comunidad Campesina de Sancos</td>
-                  <td>974055702</td>
-                  <td>Comunidad Campesina de Sancos</td>
-                  <td>Sancos</td>
-                  <td>Lucanas</td>
-                  <td>Ayacucho</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Eugenio Odilón Triveños Castro</td>
-                  <td>Presidente de la Comunidad Campesina de Para</td>
-                  <td>938896502</td>
-                  <td>Comunidad Campesina de Para</td>
-                  <td>Chaviña</td>
-                  <td>Lucanas</td>
-                  <td>Ayacucho</td>
-                </tr>
+
+                <ng-container *ngIf="listaDeActores.length == 0 then noHayActores else mostrarTablaDeActores">
+                </ng-container>
+
+                <ng-template #noHayActores>
+                  <td colspan="9"> Aún no se han registrado ACTORES</td>
+                </ng-template>
+
+                <ng-template #mostrarTablaDeActores>
+                  <ng-container *ngFor="let actor of listaDeActores">
+                    <tr>
+                      <td>1</td>
+                      <td>{{ actor.nombre }} {{ actor.apellido}}</td>
+                      <td>{{ actor.cargo }}</td>
+                      <td>{{ actor.correo }} / {{ actor.telefono }}</td>
+                      <td>{{ actor.comunidad }}</td>
+                      <td>Sancos</td>
+                      <td>Lucanas</td>
+                      <td>Ayacucho</td>
+                    </tr>
+                  </ng-container>
+                </ng-template>
+
               </tbody>
             </table>
           </div>
@@ -209,7 +212,7 @@
 
       <div class="row mt-3">
         <div class="col-md-4" style="display: flex; justify-content: end;">
-          <button class="btn btn btn-primary">Documento</button>
+          <button class="btn btn-primary">Documento</button>
         </div>
       </div>
 
@@ -244,18 +247,18 @@
 
       <div class="row mt-5">
         <div class="col-md-6" style="text-align: end;">
-          <button class="btn btn btn-primary me-3">Generar Documento</button>
+          <button class="btn btn-primary me-3">Generar Documento</button>
         </div>
         <div class="col-md-6" style="text-align: start;">
-          <button class="btn btn btn-primary me-3">Adjuntar Documento</button>
+          <button class="btn btn-primary me-3">Adjuntar Documento</button>
         </div>
       </div>
 
       <div class="row mt-5">
         <div class="col-md-12" style="display: flex; justify-content: end;">
-          <button class="btn btn btn-primary me-3">Cancelar</button>
-          <button class="btn btn btn-primary me-3">Guardar</button>
-          <button class="btn btn btn-primary">Siguiente</button>
+          <button class="btn btn-primary me-3">Cancelar</button>
+          <button class="btn btn-primary me-3">Guardar</button>
+          <button class="btn btn-primary" (click)="generarReporte()">Siguiente</button>
         </div>
       </div>
 

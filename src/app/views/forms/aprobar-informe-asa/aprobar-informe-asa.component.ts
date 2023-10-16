@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-aprobar-informe-asa',
   templateUrl: './aprobar-informe-asa.component.html',
-  styles: [
+  styleUrls: ['./aprobar-informe-asa.component.scss'
   ]
 })
 export class AprobarInformeAsaComponent {
