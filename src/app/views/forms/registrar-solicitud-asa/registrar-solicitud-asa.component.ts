@@ -7,7 +7,7 @@ import { BuscarConflictoSocialComponent } from '../buscar-conflicto-social/busca
 import { BuscarUnidadFiscalizableComponent } from '../buscar-unidad-fiscalizable/buscar-unidad-fiscalizable.component';
 import { ConflictoSocial } from 'src/app/interface/ASA/conflictoSocial';
 import { Router } from '@angular/router';
-import { ContextoSolicitudASAService } from 'src/app/services/ASA/contexto-solicitud-asa.service';
+import { ContextoSolicitudASAService, TipoAcompanamiento } from 'src/app/services/ASA/contexto-solicitud-asa.service';
 
 @Component({
   selector: 'app-registrar-solicitud-asa',
@@ -20,7 +20,9 @@ export class RegistrarSolicitudAsaComponent {
   listaDeUnidadFiscalizable: UnidadFiscalizable[] = [];
   conflictoSocial!: ConflictoSocial;
 
-  constructor(public dialog: MatDialog, private router: Router, private contexto: ContextoSolicitudASAService) {
+  constructor(public dialog: MatDialog,
+    private router: Router,
+    private contexto: ContextoSolicitudASAService) {
     this.contexto.limpiar();
   }
 
@@ -61,5 +63,26 @@ export class RegistrarSolicitudAsaComponent {
 
   respuestaSolicitud() {
     this.router.navigate(['/forms/correo-respuesta-asa']);
+  }
+
+  setearTipoDeAcompanamiento(valor: string) {
+    switch (valor) {
+      case 'EAT':
+        this.contexto.tipoAcompanamiento = TipoAcompanamiento.EAT;
+        break;
+      case 'EAC':
+        this.contexto.tipoAcompanamiento = TipoAcompanamiento.EAC;
+        break;
+      case 'SOPORTE_PARTICIPACION':
+        this.contexto.tipoAcompanamiento = TipoAcompanamiento.SOPORTE_PARTICIPACION;
+        break;
+      default:
+        this.contexto.tipoAcompanamiento = undefined;
+        break;
+    }
+  }
+
+  setearAceptaSolicitud(valor: boolean) {
+    this.contexto.aceptaSolicitud = valor;
   }
 }

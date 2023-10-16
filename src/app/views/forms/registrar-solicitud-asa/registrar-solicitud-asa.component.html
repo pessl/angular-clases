@@ -85,16 +85,17 @@
               <tbody>
                 <ng-container
                   *ngIf="listaDeUnidadFiscalizable.length == 0 then noHayUnidadesFiscalizables else mostrarTablaDeUnidadesFiscalizables"></ng-container>
-                  <ng-template #noHayUnidadesFiscalizables>
-                    <td colspan="3">Aún no se han seleccionado UNIDADES FISCALIZABLES.</td>
-                  </ng-template>
-                  <ng-template #mostrarTablaDeUnidadesFiscalizables>
+                <ng-template #noHayUnidadesFiscalizables>
+                  <td colspan="3">Aún no se han seleccionado UNIDADES FISCALIZABLES.</td>
+                </ng-template>
+                <ng-template #mostrarTablaDeUnidadesFiscalizables>
                   <ng-container *ngFor="let unidadesFiscalizable of listaDeUnidadFiscalizable">
                     <tr>
                       <td>{{unidadesFiscalizable.codigo}}</td>
                       <td>{{unidadesFiscalizable.nombre}}</td>
                       <td>
-                        <button class="btn btn-danger" style="color:white" (click)="removerUnidadFiscalizable(unidadesFiscalizable)">
+                        <button class="btn btn-danger" style="color:white"
+                          (click)="removerUnidadFiscalizable(unidadesFiscalizable)">
                           <i class="fa-solid fa-trash"></i>
                         </button>
                       </td>
@@ -126,11 +127,12 @@
               <label for="sel_TipoAcomp" class="form-label"><strong>TIPO DE ACOMPAÑAMIENTO</strong></label>
             </div>
             <div class="col-md-8">
-              <select class="form-select" id="sel_TipoAcomp">
+              <select #tipoAcompanamiento class="form-select" id="sel_TipoAcomp"
+                (change)="setearTipoDeAcompanamiento(tipoAcompanamiento.value)">
                 <option selected>Selecione</option>
-                <option>Evaluación Ambiental Temprana (EAT)</option>
-                <option>Evaluación Ambiental de Causalidad (EAC)</option>
-                <option>Supervisión ambiental o apoyo a una entidad pública</option>
+                <option value="EAT">Evaluación Ambiental Temprana (EAT)</option>
+                <option value="EAC">Evaluación Ambiental de Causalidad (EAC)</option>
+                <option value="SOPORTE_PARTICIPACION">Supervisión ambiental o apoyo a una entidad pública</option>
               </select>
             </div>
           </div>
@@ -234,12 +236,12 @@
         <div class="col-md-4">
           <ng-container
             *ngIf="conflictoSocial == null then noHayConflictoSocial else mostrarConflictoSocial"></ng-container>
-            <ng-template #noHayConflictoSocial>
-              <label>Aún no se han seleccionado un CONFLICTO SOCIAL.</label>
-            </ng-template>
-            <ng-template #mostrarConflictoSocial>
-              <label type="search" name="in_ConfSocAso" class="form-control">{{ conflictoSocial.rotulo  }}</label>
-            </ng-template>
+          <ng-template #noHayConflictoSocial>
+            <label>Aún no se han seleccionado un CONFLICTO SOCIAL.</label>
+          </ng-template>
+          <ng-template #mostrarConflictoSocial>
+            <label type="search" name="in_ConfSocAso" class="form-control">{{ conflictoSocial.rotulo }}</label>
+          </ng-template>
         </div>
         <div class="col-md-4">
           <button class="btn btn-primary" (click)="openDialogCS()">Buscar Conflicto Social</button>
@@ -252,8 +254,8 @@
             <label class="form-label"><strong>¿Se acepta solicitud de acompañamiento</strong></label>
           </div>
           <div class="mt-3 ms-5">
-            <input name="r_Solicitud" type="radio" class="ms-5"><label class="form-label">Si</label>
-            <input name="r_Solicitud" type="radio" class="ms-5"><label class="form-label">No</label>
+            <input name="r_Solicitud" type="radio" class="ms-5" (change)="setearAceptaSolicitud(true)"><label class="form-label">Si</label>
+            <input name="r_Solicitud" type="radio" class="ms-5" (change)="setearAceptaSolicitud(false)"><label class="form-label">No</label>
           </div>
         </div>
         <div class="col-md-4" style="display: flex; justify-content: space-between;">

@@ -11,17 +11,27 @@ export enum TipoAcompanamiento {
 })
 export class ContextoSolicitudASAService {
 
-  private tipoDeAcompanamiento: TipoAcompanamiento | undefined;
+  private tipoAcompanamiento_: TipoAcompanamiento | undefined;
+  private aceptaSolicitud_ = true;
 
   constructor() { }
 
-  set tipoAcompanamiento(value: TipoAcompanamiento) {
-    this.tipoAcompanamiento = value;
+  set tipoAcompanamiento(value: TipoAcompanamiento | undefined) {
+    this.tipoAcompanamiento_ = value;
   }
 
-  get tipoAcompanamiento() {
-    return this.tipoAcompanamiento;
+  get tipoAcompanamiento(): TipoAcompanamiento | undefined {
+    return this.tipoAcompanamiento_;
   }
 
-  limpiar() { this.tipoDeAcompanamiento = undefined; }
+  set aceptaSolicitud(value: boolean) {
+    this.aceptaSolicitud_ = value;
+  }
+
+  get aceptaSolicitud() { return this.aceptaSolicitud_; }
+
+  limpiar() {
+    this.tipoAcompanamiento_ = undefined;
+    this.aceptaSolicitud_ = false;
+  }
 }
