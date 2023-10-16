@@ -7,6 +7,7 @@ import { BuscarConflictoSocialComponent } from '../buscar-conflicto-social/busca
 import { BuscarUnidadFiscalizableComponent } from '../buscar-unidad-fiscalizable/buscar-unidad-fiscalizable.component';
 import { ConflictoSocial } from 'src/app/interface/ASA/conflictoSocial';
 import { Router } from '@angular/router';
+import { ContextoSolicitudASAService } from 'src/app/services/ASA/contexto-solicitud-asa.service';
 
 @Component({
   selector: 'app-registrar-solicitud-asa',
@@ -19,7 +20,9 @@ export class RegistrarSolicitudAsaComponent {
   listaDeUnidadFiscalizable: UnidadFiscalizable[] = [];
   conflictoSocial!: ConflictoSocial;
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router, private contexto: ContextoSolicitudASAService) {
+    this.contexto.limpiar();
+  }
 
   openDialogAdm(): void {
     const dialogRef = this.dialog.open(BuscarAdministradoComponent);
