@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UnidadFiscalizable } from '../../../interface/ASA/unidadFiscalizable';
+import { UnidadFiscalizable } from '../../../interface/ASA/unidad-fiscalizable.model';
 import { MatTableDataSource } from '@angular/material/table';
-import { RespuestaServicio } from 'src/app/interface/ASA/respuesta-service.model';
-import { MatDialogRef } from '@angular/material/dialog';
-import { UnidadFiscalizableService } from '../../../services/ASA/unidad-fiscalizable.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialogRef } from '@angular/material/dialog';
+import { RespuestaServicio } from 'src/app/interface/ASA/respuesta-service.model';
+import { UnidadFiscalizableService } from '../../../services/ASA/unidad-fiscalizable.service';
 
 @Component({
   selector: 'app-buscar-unidad-fiscalizable',

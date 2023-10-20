@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ConflictoSocial } from '../../../interface/ASA/conflictoSocial';
+import { ConflictoSocial } from '../../../interface/ASA/conflicto-social.model';
 import { MatTableDataSource } from '@angular/material/table';
-import { RespuestaServicio } from 'src/app/interface/ASA/respuesta-service.model';
-import { MatDialogRef } from '@angular/material/dialog';
-import { ConflictoSocialService } from '../../../services/ASA/conflicto-social.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { ConflictoSocialService } from '../../../services/ASA/conflicto-social.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { RespuestaServicio } from 'src/app/interface/ASA/respuesta-service.model';
 
 @Component({
   selector: 'app-buscar-conflicto-social',
@@ -12,8 +12,8 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./buscar-conflicto-social.component.scss'
   ]
 })
-export class BuscarConflictoSocialComponent implements OnInit {
 
+export class BuscarConflictoSocialComponent implements OnInit {
   listaDeConflictoSocial!: ConflictoSocial[];
 
   textoABuscar: string = '';

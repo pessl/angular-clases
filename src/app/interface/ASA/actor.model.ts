@@ -1,10 +1,12 @@
 export interface Actor {
   id: number;
-  nombre: string;
-  apellido: string;
+  nombres: string;
+  apellidos: string;
   cargo: string;
   correo: string;
   telefono: string;
   comunidad: string;
-  ubigeo: string;
+  departamento: string;
+  provincia: string;
+  distrito: string;
 }

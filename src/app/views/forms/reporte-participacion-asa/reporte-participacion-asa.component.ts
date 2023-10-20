@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import { Actor } from '../../../interface/ASA/actor';
 import { Router } from '@angular/router';
+
+import { CommonModule } from '@angular/common';
+
 import { MatDialog } from '@angular/material/dialog';
+
+import { Actor } from '../../../interface/ASA/actor.model';
 import { RegistroActorComponent } from '../registro-actor/registro-actor.component';
+
 
 @Component({
   selector: 'app-reporte-participacion-asa',
@@ -11,6 +16,7 @@ import { RegistroActorComponent } from '../registro-actor/registro-actor.compone
   ]
 })
 export class ReporteParticipacionAsaComponent {
+
   listaDeActores: Actor[] = [];
 
   constructor(public dialog: MatDialog, private router: Router){}
@@ -22,6 +28,10 @@ export class ReporteParticipacionAsaComponent {
         this.listaDeActores.push(actor);
       }
     });
+  }
+
+  removerActor(actor: Actor) {
+    this.listaDeActores.splice(this.listaDeActores.indexOf(actor), 1);
   }
 
   generarReporte(){

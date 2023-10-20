@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aprobar-informe-asa',
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AprobarInformeAsaComponent {
 
+  constructor(private router: Router){}
+
+  aprobarInforme(){
+    this.router.navigate(['/charts']);
+  }
 }

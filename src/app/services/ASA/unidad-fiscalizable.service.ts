@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { UnidadFiscalizable } from '../../interface/ASA/unidadFiscalizable';
 import { HttpClient } from '@angular/common/http';
-import { Observable, delay, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { UnidadFiscalizable } from 'src/app/interface/ASA/unidad-fiscalizable.model';
+import { Observable, of, delay } from 'rxjs';
 import { RespuestaServicio } from 'src/app/interface/ASA/respuesta-service.model';
 
 @Injectable({

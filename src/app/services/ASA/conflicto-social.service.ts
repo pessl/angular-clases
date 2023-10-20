@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ConflictoSocial } from '../../interface/ASA/conflictoSocial';
+import { ConflictoSocial } from '../../interface/ASA/conflicto-social.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, delay, of } from 'rxjs';
 import { RespuestaServicio } from 'src/app/interface/ASA/respuesta-service.model';

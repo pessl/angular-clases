@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-export enum TipoAcompanamiento {
+export enum TipoAcompaniamiento {
   EAT = 'Evaluación Ambiental Temprana',
   EAC = 'Evaluación Ambiental de Casualidad',
   SOPORTE_PARTICIPACION = 'Soporte de Participación'
@@ -9,19 +9,19 @@ export enum TipoAcompanamiento {
 @Injectable({
   providedIn: 'root'
 })
-export class ContextoSolicitudASAService {
+export class ContextoSolicitudAsaService {
 
-  private tipoAcompanamiento_: TipoAcompanamiento | undefined;
+  private tipoAcompaniamiento_ : TipoAcompaniamiento | undefined;
   private aceptaSolicitud_ = true;
 
   constructor() { }
 
-  set tipoAcompanamiento(value: TipoAcompanamiento | undefined) {
-    this.tipoAcompanamiento_ = value;
+  set tipoAcompanamiento(value: TipoAcompaniamiento | undefined) {
+    this.tipoAcompaniamiento_ = value;
   }
 
-  get tipoAcompanamiento(): TipoAcompanamiento | undefined {
-    return this.tipoAcompanamiento_;
+  get tipoAcompanamiento(): TipoAcompaniamiento | undefined {
+    return this.tipoAcompaniamiento_;
   }
 
   set aceptaSolicitud(value: boolean) {
@@ -31,7 +31,7 @@ export class ContextoSolicitudASAService {
   get aceptaSolicitud() { return this.aceptaSolicitud_; }
 
   limpiar() {
-    this.tipoAcompanamiento_ = undefined;
+    this.tipoAcompaniamiento_ = undefined;
     this.aceptaSolicitud_ = false;
   }
 }

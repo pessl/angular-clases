@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ContextoSolicitudASAService, TipoAcompanamiento } from 'src/app/services/ASA/contexto-solicitud-asa.service';
+import { ContextoSolicitudAsaService, TipoAcompaniamiento } from 'src/app/services/ASA/contexto-solicitud-asa.service';
 
 @Component({
   selector: 'app-correo-respuesta-asa',
@@ -9,24 +9,23 @@ import { ContextoSolicitudASAService, TipoAcompanamiento } from 'src/app/service
   ]
 })
 export class CorreoRespuestaAsaComponent {
-
   constructor(
     private router: Router,
-    private contexto: ContextoSolicitudASAService) {
+    private contexto: ContextoSolicitudAsaService) {
   }
 
   irASiguiente() {
     if (this.contexto.aceptaSolicitud) {
-      const tipoAcompanamiento = this.contexto.tipoAcompanamiento;
-      if (tipoAcompanamiento) {
-        switch (tipoAcompanamiento) {
-          case TipoAcompanamiento.EAT:
+      const tipoAcompaniamiento = this.contexto.tipoAcompanamiento;
+      if (tipoAcompaniamiento) {
+        switch (tipoAcompaniamiento) {
+          case TipoAcompaniamiento.EAT:
             this.router.navigate(['/forms/documentos-eat']);
             break;
-          case TipoAcompanamiento.EAC:
+          case TipoAcompaniamiento.EAC:
             this.router.navigate(['/forms/documentos-eac']);
             break;
-          case TipoAcompanamiento.SOPORTE_PARTICIPACION:
+          case TipoAcompaniamiento.SOPORTE_PARTICIPACION:
             this.router.navigate(['/forms/reporte-participacion-asa']);
             break;
         }
@@ -34,8 +33,7 @@ export class CorreoRespuestaAsaComponent {
         // ERROR: el tipo de acompañamiento tuvo que ser seteado anteriormente
       }
     } else {
-      this.router.navigate(['/forms']);
+      this.router.navigate(['/charts']);
     }
   }
-
 }

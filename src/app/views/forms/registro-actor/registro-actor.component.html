@@ -4,9 +4,83 @@
     Registro de Actor
   </div>
 
-  <div class="card-body">
-    <div class="row mt-3">
-      <div class="col-md-12"><h2><strong>Registro de Nuevo Actor</strong></h2></div>
-  </div>
 
+  <div class="card-body">
+
+    <form [formGroup]="formularioActor" (ngSubmit)="guardar()">
+      <div class="row mt-1">
+        <div class="col-md-6">
+          <label for="in_nombre" class="form-label">Nombres</label>
+          <input type="text" id="in_nombre" class="form-control" formControlName="nombres">
+        </div>
+        <div class="col-md-6">
+          <label for="in_apellido" class="form-label">Apellidos</label>
+          <input type="text" id="in_apellido" class="form-control" formControlName="apellidos">
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col-md-6">
+          <label for="in_comunidad" class="form-label">Comunidad</label>
+          <input type="text" id="in_comunidad" class="form-control" formControlName="comunidad">
+        </div>
+        <div class="col-md-6">
+          <label for="in_cargo" class="form-label">Cargo</label>
+          <input type="text" id="in_cargo" class="form-control" formControlName="cargo">
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col-md-6">
+          <label for="in_correo" class="form-label">Correo</label>
+          <input type="text" id="in_correo" class="form-control" formControlName="correo">
+        </div>
+        <div class="col-md-6">
+          <label for="in_telefono" class="form-label">Teléfono</label>
+          <input type="text" id="in_telefono" class="form-control" formControlName="telefono">
+        </div>
+      </div>
+
+      <div class="row mt-1 label">
+        <div class="col-md-6">
+          <label for="sel_Departamento" class="form-label">Departamento</label>
+        </div>
+        <div class="col-md-6">
+          <select class="form-select" id="sel_Departamento" formControlName="departamento">
+            <option selected>Seleccione</option>
+            <option value="Lima">Lima</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-1 label">
+        <div class="col-md-6">
+          <label for="sel_Provincia" class="form-label">Provincia</label>
+        </div>
+        <div class="col-md-6">
+          <select class="form-select" id="sel_Provincia" formControlName="provincia">
+            <option selected>Seleccione</option>
+            <option value="Lima">Lima</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-1 label">
+        <div class="col-md-6">
+          <label for="sel_Distrito" class="form-label">Distrito</label>
+        </div>
+        <div class="col-md-6">
+          <select class="form-select" id="sel_Distrito" formControlName="distrito">
+            <option selected>Seleccione</option>
+            <option value="Lima">Lima</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col-md-12" style="text-align: end;">
+          <button class="btn btn-primary mt-3">Guardar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
 </div>

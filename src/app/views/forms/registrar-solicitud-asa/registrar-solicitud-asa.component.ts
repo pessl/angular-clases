@@ -1,13 +1,17 @@
+import { ContextoSolicitudAsaService, TipoAcompaniamiento } from './../../../services/ASA/contexto-solicitud-asa.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { CommonModule } from '@angular/common';
+
 import { MatDialog } from '@angular/material/dialog';
+
+import { Administrado } from 'src/app/interface/ASA/administrado.model';
 import { BuscarAdministradoComponent } from '../buscar-administrado/buscar-administrado.component';
-import { Administrado } from 'src/app/interface/ASA/administrado';
-import { UnidadFiscalizable } from 'src/app/interface/ASA/unidadFiscalizable';
 import { BuscarConflictoSocialComponent } from '../buscar-conflicto-social/buscar-conflicto-social.component';
 import { BuscarUnidadFiscalizableComponent } from '../buscar-unidad-fiscalizable/buscar-unidad-fiscalizable.component';
-import { ConflictoSocial } from 'src/app/interface/ASA/conflictoSocial';
-import { Router } from '@angular/router';
-import { ContextoSolicitudASAService, TipoAcompanamiento } from 'src/app/services/ASA/contexto-solicitud-asa.service';
+import { ConflictoSocial } from 'src/app/interface/ASA/conflicto-social.model';
+import { UnidadFiscalizable } from 'src/app/interface/ASA/unidad-fiscalizable.model';
 
 @Component({
   selector: 'app-registrar-solicitud-asa',
@@ -20,10 +24,11 @@ export class RegistrarSolicitudAsaComponent {
   listaDeUnidadFiscalizable: UnidadFiscalizable[] = [];
   conflictoSocial!: ConflictoSocial;
 
-  constructor(public dialog: MatDialog,
+  constructor(
+    public dialog: MatDialog,
     private router: Router,
-    private contexto: ContextoSolicitudASAService) {
-    this.contexto.limpiar();
+    private contexto: ContextoSolicitudAsaService) {
+      this.contexto.limpiar();
   }
 
   openDialogAdm(): void {
@@ -68,13 +73,13 @@ export class RegistrarSolicitudAsaComponent {
   setearTipoDeAcompanamiento(valor: string) {
     switch (valor) {
       case 'EAT':
-        this.contexto.tipoAcompanamiento = TipoAcompanamiento.EAT;
+        this.contexto.tipoAcompanamiento = TipoAcompaniamiento.EAT;
         break;
       case 'EAC':
-        this.contexto.tipoAcompanamiento = TipoAcompanamiento.EAC;
+        this.contexto.tipoAcompanamiento = TipoAcompaniamiento.EAC;
         break;
       case 'SOPORTE_PARTICIPACION':
-        this.contexto.tipoAcompanamiento = TipoAcompanamiento.SOPORTE_PARTICIPACION;
+        this.contexto.tipoAcompanamiento = TipoAcompaniamiento.SOPORTE_PARTICIPACION;
         break;
       default:
         this.contexto.tipoAcompanamiento = undefined;

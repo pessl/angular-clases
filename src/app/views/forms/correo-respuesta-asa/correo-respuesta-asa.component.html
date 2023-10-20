@@ -1,78 +1,78 @@
 <div class="card">
-  <form action="">
-    <div class="card-header custom-card-header">
-      Registrar Información Requerida y Enviar Correo de Aceptación
+
+  <div class="card-header custom-card-header">
+    Enviar Correo de Respuesta
+  </div>
+  <div class="card-body">
+
+    <div class="row mt-3 label">
+      <div class="col-md-2">
+        <label for="in_fecha" class="form-label"><strong>FECHA</strong></label>
+      </div>
+      <div class="col-md-2">
+        <input type="date" name="in_fecha" class="form-control">
+      </div>
     </div>
-    <div class="card-body">
 
-      <div class="row mt-3">
-        <div class="col-md-2">
-          <label for="in_fecha" class="form-label"><strong>FECHA</strong></label>
-        </div>
-        <div class="col-md-2">
-          <input type="date" name="in_fecha" class="form-control">
-        </div>
+    <div class="row mt-3 label">
+      <div class="col-md-2">
+        <label for="sel_areaSolicitante" class="form-label"><strong>ÁREA SOLICITANTE</strong></label>
       </div>
-
-      <div class="row mt-3">
-        <div class="col-md-2">
-          <label for="sel_areaSolicitante" class="form-label"><strong>ÁREA SOLICITANTE</strong></label>
-        </div>
-        <div class="col-md-4">
-          <select class="form-select" id="sel_areaSolicitante">
-            <option selected>Selecione</option>
-          </select>
-        </div>
+      <div class="col-md-4">
+        <select class="form-select" id="sel_areaSolicitante">
+          <option selected>Seleccione</option>
+        </select>
       </div>
+    </div>
 
-      <div class="row mt-3">
-        <div class="col-md-2">
-          <label for="in_correos" class="form-label"><strong>CORREOS</strong></label>
-        </div>
-        <div class="col-md-4">
-          <input type="search" name="in_correos" class="form-control">
-        </div>
+    <div class="row mt-3 label">
+      <div class="col-md-2">
+        <label for="in_correos" class="form-label"><strong>CORREOS</strong></label>
       </div>
-
-      <div class="row mt-3">
-        <div class="col-md-12">
-          <label for="in_asunto" class="form-label"><strong>ASUNTO</strong></label>
-          <input name="in_asunto" class="form-control">
-        </div>
+      <div class="col-md-4">
+        <input type="search" name="in_correos" class="form-control">
       </div>
+    </div>
 
-      <div class="row mt-3">
-        <div class="col-md-12">
-          <label for="ta_Descripcion" class="form-label"><strong>DESCRIPCION</strong></label>
-          <textarea formControlName="ta_Descripcion" class="form-control" rows="8"></textarea>
-        </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="in_asunto" class="form-label"><strong>ASUNTO</strong></label>
+        <input name="in_asunto" class="form-control">
       </div>
+    </div>
 
-      <div class="row mt-3">
-        <div class="col-md-2">
-          <label for="ad_documentos" class="form-label"><strong>DOCUMENTOS</strong></label>
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-primary">Adjuntar Documento</button>
-        </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="ta_Descripcion" class="form-label"><strong>DESCRIPCION</strong></label>
+        <textarea class="form-control" rows="8"></textarea>
       </div>
+    </div>
 
-      <div class="row mt-5">
-        <div class="col-md-12" style="display: flex; justify-content: end;">
-          <button class="btn btn-primary me-3">Cancelar</button>
-          <button class="btn btn-primary me-3">Guardar</button>
-          <button class="btn btn-primary" (click)="irASiguiente()">Siguiente</button>
-        </div>
+    <div class="row mt-3 label">
+      <div class="col-md-2">
+        <label for="ad_documentos" class="form-label"><strong>DOCUMENTOS</strong></label>
       </div>
-
-      <div>
-
+      <div class="col-md-4">
+        <button class="btn btn-primary">Adjuntar Documento</button>
       </div>
+    </div>
 
-      <div>
-
+    <div class="row mt-5">
+      <div class="col-md-12" style="display: flex; justify-content: end;">
+        <button class="btn btn-primary me-3">Cancelar</button>
+        <button class="btn btn-primary me-3">Guardar</button>
+        <button class="btn btn-primary" (click)="irASiguiente()">Siguiente</button>
       </div>
+    </div>
+
+    <div>
 
     </div>
-  </form>
+
+    <div>
+
+    </div>
+
+  </div>
+
 </div>
