@@ -65,11 +65,20 @@ import { DocumentosEacAnexo5Component } from './documentos-eac-anexo5/documentos
 import { DocumentosEacAnexo6Component } from './documentos-eac-anexo6/documentos-eac-anexo6.component';
 import { BuscarAdministradoComponent } from './buscar-administrado/buscar-administrado.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BuscarUnidadFiscalizableComponent } from './buscar-unidad-fiscalizable/buscar-unidad-fiscalizable.component';
 import { BuscarConflictoSocialComponent } from './buscar-conflicto-social/buscar-conflicto-social.component';
 import { RegistroActorComponent } from './registro-actor/registro-actor.component';
+import { RegistrarInvitacionComponent } from './registrar-invitacion/registrar-invitacion.component';
+import { PertinenciaParticipacionComponent } from './pertinencia-participacion/pertinencia-participacion.component';
+import { InformacionSustentatoriaComponent } from './informacion-sustentatoria/informacion-sustentatoria.component';
+import { AyudaMemoriaComponent } from './ayuda-memoria/ayuda-memoria.component';
+import { InfografiaComponent } from './infografia/infografia.component';
+import { GuiaParticipacionComponent } from './guia-participacion/guia-participacion.component';
+import { ReporteParticipacionReunionesPreviasComponent } from './reporte-participacion-reuniones-previas/reporte-participacion-reuniones-previas.component';
+import { ActaParticipacionComponent } from './acta-participacion/acta-participacion.component';
 
 @NgModule({
   declarations: [
@@ -118,6 +127,14 @@ import { RegistroActorComponent } from './registro-actor/registro-actor.componen
     BuscarUnidadFiscalizableComponent,
     BuscarConflictoSocialComponent,
     RegistroActorComponent,
+    RegistrarInvitacionComponent,
+    PertinenciaParticipacionComponent,
+    InformacionSustentatoriaComponent,
+    AyudaMemoriaComponent,
+    InfografiaComponent,
+    GuiaParticipacionComponent,
+    ReporteParticipacionReunionesPreviasComponent,
+    ActaParticipacionComponent,
   ],
   imports: [
     ButtonGroupModule,
@@ -143,6 +160,7 @@ import { RegistroActorComponent } from './registro-actor/registro-actor.componen
     NgxPaginationModule,
     ReactiveFormsModule,
     SharedModule,
+    MatIconModule,
   ]
 })
 export class CoreUIFormsModule {
