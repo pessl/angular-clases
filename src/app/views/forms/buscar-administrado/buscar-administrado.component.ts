@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Administrado } from '../../../interface/ASA/administrado';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Administrado } from '../../../interface/ASA/administrado.model';
 import { RespuestaServicio } from '../../../interface/ASA/respuesta-service.model';
 import { AdministradoService } from '../../../services/ASA/administrado.service';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -24,7 +24,7 @@ export class BuscarAdministradoComponent implements OnInit {
   ];
 
   dataSource!: MatTableDataSource<Administrado>;
-  tamanoPagina: number = 5;
+  tamanioPagina: number = 5;
 
   esperandoDatos = true;
 
@@ -45,7 +45,6 @@ export class BuscarAdministradoComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.listaDeAdministrados);
           setTimeout(() => { this.dataSource.paginator = this.paginator; });
         } else {
-          // TODO(bean): qué hacer en este caso?
         }
       });
   }

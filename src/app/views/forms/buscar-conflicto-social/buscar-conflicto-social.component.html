@@ -1,0 +1,63 @@
+<div class="buscar-conflicto-social">
+
+  <ng-container *ngIf="esperandoDatos; then mostrarSpinner else mostrarTablaDeConflictoSocial">
+  </ng-container>
+
+  <ng-template #mostrarSpinner>
+    <div class="fade show">
+      <i class="spinner-grow spinner-grow-sm"></i>
+      <span class="m-2">Cargando...</span>
+    </div>
+  </ng-template>
+
+  <ng-template #mostrarTablaDeConflictoSocial>
+    <div class="buscar-conflicto-social__busqueda">
+      <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input matInput type="text" [(ngModel)]="textoABuscar" (keyup)="buscarEnTabla()">
+      </mat-form-field>
+    </div>
+
+    <div class="buscar-conflicto-social__contenido">
+      <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>CÓDIGO</th>
+          <td mat-cell *matCellDef="let row">{{row.codigo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="rotulo">
+          <th mat-header-cell *matHeaderCellDef>RÓTULO</th>
+          <td mat-cell *matCellDef="let row">{{row.rotulo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row">
+            <button class="btn btn-primary" style="color:white" (click)="seleccionarConflictoSocial(row)">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasAMostrar;">
+        </tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell filtro-sin-resultados" [attr.colspan]="columnasAMostrar.length">
+            No se encontraron resultados.
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator hidePageSize="true" [pageSize]="tamanioPagina" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </ng-template>
+</div>

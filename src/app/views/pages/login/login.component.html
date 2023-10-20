@@ -26,13 +26,13 @@
 </head>
 <body>
   <form [formGroup]="formLogin" (ngSubmit)="send(formLogin.value)">
-    <div class="background">   
+    <div class="background">
       <div class="container d-flex justify-content-center align-items-center h-100 py-5">
         <div class="row ">
           <div class="col-xl-12">
             <div class="card p-4">
               <div class="card-body">
-               
+
                   <div class="row text-center mb-4">
                     <div class="col-md-12">
                     <img src="https://pifa.oefa.gob.pe/Fotos_App/Img_PIFA/logo_oefa.png" style="width: 350px !important;" alt="Bienvenido" class="mx-auto d-block">
@@ -49,7 +49,7 @@
                         <span class="input-group-text">
                           <svg cIcon name="cilUser"></svg>
                         </span>
-                        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Usuario" [class.is-invalid]="usernamevalido"  />                        
+                        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Usuario" [class.is-invalid]="usernamevalido"  />
                       </div>
                     <span *ngIf="usernamevalido" class="text-danger">Ingrese Usuarios</span>
                     </div>
@@ -61,7 +61,7 @@
                         <svg cIcon name="cilLockLocked"></svg>
                       </span>
                       <input class="form-control" formControlName="password" id="password" type="password" placeholder="Contraseña" [class.is-invalid]="passwordvalido"/>
-                     
+
                     </div>
                     <span *ngIf="passwordvalido" class="text-danger">Ingrese contraseña</span>
                   </div>
@@ -80,24 +80,26 @@
                       </button>
                     </div>
                   </div>
-              
+
               </div>
             </div>
           </div>
         </div>
         </div>
-      
+
     </div>
     </form>
     <br>
+    <!--
     <h3 class="mt-5">Formulario</h3>
     <pre>Estado formulario: {{formLogin.valid}}
     <br>
-    Status:{{formLogin.status}}   
+    Status:{{formLogin.status}}
     </pre>
     <br>
     <pre>
       {{formLogin.valid | json}}
     </pre>
+    -->
 </body>
 </html>

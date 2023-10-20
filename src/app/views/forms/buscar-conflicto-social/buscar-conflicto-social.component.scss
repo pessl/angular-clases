@@ -1,0 +1,16 @@
+.buscar-conflicto-social {
+  padding: 1rem;
+
+  &__busqueda {
+    margin-bottom: 1rem;
+  }
+}
+
+.filtro-sin-resultados {
+  padding: 1rem;
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
