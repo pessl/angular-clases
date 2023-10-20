@@ -16,6 +16,11 @@ import { ReporteParticipacionAsaComponent } from './reporte-participacion-asa/re
 import { ReporteAsaComponent } from './reporte-asa/reporte-asa.component';
 import { AprobarInformeAsaComponent } from './aprobar-informe-asa/aprobar-informe-asa.component';
 import { CorreoRespuestaAsaComponent } from './correo-respuesta-asa/correo-respuesta-asa.component';
+import { RegistrarInvitacionComponent } from './registrar-invitacion/registrar-invitacion.component';
+import { PertinenciaParticipacionComponent } from './pertinencia-participacion/pertinencia-participacion.component';
+import { InformacionSustentatoriaComponent } from './informacion-sustentatoria/informacion-sustentatoria.component';
+import { ReporteParticipacionReunionesPreviasComponent } from './reporte-participacion-reuniones-previas/reporte-participacion-reuniones-previas.component';
+import { ActaParticipacionComponent } from './acta-participacion/acta-participacion.component';
 
 
 const routes: Routes = [
@@ -137,7 +142,44 @@ const routes: Routes = [
         data: {
           title: 'Aprobacion de Informe ASA'
         }
-      }
+      },
+      // PROCESO ESPACIO DE DIÁLOGO
+      // =====================================
+      {
+        path: 'registrar-invitacion',
+        component:RegistrarInvitacionComponent,
+        data: {
+          title: 'Registrar Invitación'
+        }
+      },
+      {
+        path: 'pertinencia-participacion',
+        component:PertinenciaParticipacionComponent,
+        data: {
+          title: 'Pertinencia de Participación'
+        }
+      },
+      {
+        path: 'informacion-sustentatoria',
+        component:InformacionSustentatoriaComponent,
+        data: {
+          title: 'Información Sustentoria'
+        }
+      },
+      {
+        path: 'reporte-participacion-reuniones-previas',
+        component:ReporteParticipacionReunionesPreviasComponent,
+        data: {
+          title: 'Reporte de Participación de Reuniones Previas'
+        }
+      },
+      {
+        path: 'acta-participacion',
+        component:ActaParticipacionComponent,
+        data: {
+          title: 'Generar Acta de Participación'
+        }
+      },
     ]
   }
 ];

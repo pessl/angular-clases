@@ -109,6 +109,23 @@ export const navItems: INavData[] = [
     name: 'Control de deudas',
     title: true
   },
+  // ESPACIO DE DIÁLOGO Y SEGUIMIENTO DE COMPROMISOS
+  // ===============================================
+  {
+    name: 'Espacio de Diálogo',
+    url: '/forms',
+    children: [
+      {
+        name: 'Registrar invitación',
+        url: '/forms/registrar-invitacion',
+        iconComponent: { name: 'cil-notes' }
+      },
+    ]
+  },
+  {
+    name: 'Control de deudas',
+    title: true
+  },
   {
     name: 'Multas',
     url: '/forms',
